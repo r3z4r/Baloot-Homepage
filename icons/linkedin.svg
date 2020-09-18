@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="_733561" width="77" height="77" viewBox="0 0 77 77">
+    <defs>
+        <style>
+            .cls-1{fill:#1976d2}
+        </style>
+    </defs>
+    <path id="Rectangle_118" d="M0 0H17.219V52.938H0z" class="cls-1" transform="translate(0 24.063)"/>
+    <path id="Path_202" d="M200.059 160.621c-.183-.058-.356-.12-.549-.173-.231-.053-.462-.1-.7-.135a15.433 15.433 0 0 0-3.09-.313c-10.039 0-16.406 7.3-18.5 10.121V160H160v52.938h17.219v-28.875s13.013-18.124 18.5-4.812v33.688h17.214v-35.725a17.169 17.169 0 0 0-12.874-16.593z" class="cls-1" transform="translate(-135.938 -135.938)"/>
+    <circle id="Ellipse_217" cx="8.5" cy="8.5" r="8.5" class="cls-1" transform="translate(.001)"/>
+</svg>
