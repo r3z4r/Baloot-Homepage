@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
 	gridList: {
 		width: 360,
 		height: 240,
+		listStyle: "none",
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",

@@ -1,39 +1,21 @@
 import React from "react";
-import {
-	Grid,
-	makeStyles,
-	Typography,
-	Button,
-	Paper,
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-} from "@material-ui/core";
+import {Grid, makeStyles, Typography, Button, Paper} from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import orange from "@material-ui/core/colors/orange";
 
-import Video from "../../components/layout/UI/Video";
-import FlowStep from "../../components/layout/UI/FlowStep";
-import Ellipse from "../../components/layout/UI/Ellipse";
+import Video from "../../components/UI/Video";
+import FlowStep from "../../components/UI/FlowStep";
+import Ellipse from "../../components/UI/Ellipse";
+import MUIAccordion from "../../components/UI/MUIAccordion";
 import DownArrow from "../../icons/down-arrow.svg";
+import Carousel from "../../components/UI/Carousel/";
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		margin: theme.spacing(0, 18),
+		margin: theme.spacing(0, 12),
 	},
-	container0: {
-		display: "flex",
-		position: "relative",
-		height: 450,
-		margin: theme.spacing(6, 12),
-		"& img": {
-			position: "absolute",
-			right: 0,
-			width: 400,
-			height: 400,
-		},
-	},
+
 	button: {
 		marginTop: 28,
 		padding: 6,
@@ -41,13 +23,16 @@ const useStyles = makeStyles(theme => ({
 		fontSize: 18,
 		borderRadius: 10,
 	},
+
 	text: {margin: theme.spacing(6, 0)},
+
 	list: {
 		fontSize: 20,
 		marginLeft: theme.spacing(-4),
 		listStyle: "none",
 		lineHeight: "3rem",
 	},
+
 	arrows: {
 		display: "flex",
 		flexDirection: "column-reverse",
@@ -55,15 +40,42 @@ const useStyles = makeStyles(theme => ({
 		"& svg": {
 			position: "absolute",
 			height: 40,
-			left: "39vw",
+			left: "33vw",
 
 			[theme.breakpoints.down("md")]: {
-				left: "37vw",
+				left: "30vw",
 			},
 		},
 		"& svg:nth-child(1)": {
 			top: "calc(100% - 70px);",
 			opacity: 0.21,
+		},
+	},
+
+	container0: {
+		display: "flex",
+		position: "relative",
+		height: 450,
+		margin: theme.spacing(6, 24),
+		"& img": {
+			position: "absolute",
+			right: 20,
+			width: 450, //fixed image size is not responsive , should be converted to percentage
+		},
+		"& img:nth-child(2)": {
+			right: 0,
+			top: 30,
+			width: 420, //fixed image size is not responsive
+		},
+		"& img:nth-child(3)": {
+			width: 50,
+			top: 40,
+			right: 280,
+		},
+		"& img:nth-child(4)": {
+			width: 55,
+			top: 250,
+			right: 50,
 		},
 	},
 
@@ -77,10 +89,11 @@ const useStyles = makeStyles(theme => ({
 			height: 25,
 		},
 	},
+
 	container2: {
 		display: "flex",
 		justifyContent: "flex-end",
-		margin: theme.spacing(6, 4),
+		margin: theme.spacing(10, 4),
 		height: 400,
 		"& #app": {
 			marginLeft: 26,
@@ -90,9 +103,10 @@ const useStyles = makeStyles(theme => ({
 			maxWidth: "50ch",
 		},
 	},
+
 	container3: {
 		display: "flex",
-		height: 600,
+		height: 550,
 		width: "100vw",
 		borderRadius: 15,
 		backgroundColor: "#f4f4f4",
@@ -101,6 +115,7 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "space-around",
 		alignItems: "center",
 	},
+
 	container4: {
 		width: "70vw",
 		borderRadius: 15,
@@ -110,13 +125,24 @@ const useStyles = makeStyles(theme => ({
 			width: "90vw",
 		},
 	},
+
 	container5: {
-		height: 300, //until carousel is installed
-		width: "100vw",
+		width: "97vw",
 		borderRadius: 15,
 		backgroundColor: "#f4f4f4",
 		margin: theme.spacing(6, 2),
-		padding: theme.spacing(6),
+		padding: theme.spacing(8),
+		"& .swiper-button-next, .swiper-button-prev": {
+			color: theme.palette.primary.main,
+			backgroundColor: theme.palette.pagination.main,
+			padding: theme.spacing(4),
+			borderRadius: 20,
+		},
+	},
+	carouselHeader: {
+		display: "flex",
+		justifyContent: "space-between",
+		alignItems: "center",
 	},
 }));
 
@@ -161,8 +187,10 @@ function HomePage() {
 						</Button>
 					</div>
 					<div className={classes.image}>
-						<img src="/images/Background Simple.png" alt="" />
-						<img src="/images/startimg.png" alt="" />
+						<img src="/images/homepage/Background Simple.png" alt="" />
+						<img src="/images/homepage/startimg.png" alt="" />
+						<img src="/images/homepage/squirrel.png" alt="" />
+						<img src="/images/homepage/squirrel.png" alt="" />
 					</div>
 					<div className={classes.arrows}>
 						<DownArrow />
@@ -174,15 +202,15 @@ function HomePage() {
 				</Grid>
 				<Grid container justify="center">
 					<div className={classes.container1}>
-						<FlowStep img="/images/download.png" alt="download">
+						<FlowStep img="/images/homepage/download.png" alt="download">
 							دانلود اپلیکیشن بلوط
 						</FlowStep>
-						<img src="/images/arrow.png" alt="arrow" id="arrow" />
-						<FlowStep img="/images/auth.png" alt="authenticate">
+						<img src="/images/homepage/arrow.png" alt="arrow" id="arrow" />
+						<FlowStep img="/images/homepage/auth.png" alt="authenticate">
 							دانلود اپلیکیشن بلوط
 						</FlowStep>
-						<img src="/images/arrow.png" alt="arrow" id="arrow" />
-						<FlowStep img="/images/launch.png" alt="launch">
+						<img src="/images/homepage/arrow.png" alt="arrow" id="arrow" />
+						<FlowStep img="/images/homepage/launch.png" alt="launch">
 							دانلود اپلیکیشن بلوط
 						</FlowStep>
 						<Video
@@ -256,76 +284,7 @@ function HomePage() {
 						<Typography variant="h4" align="center">
 							سئوالات متداول
 						</Typography>
-						<Accordion defaultExpanded>
-							<AccordionSummary
-								expandIcon={
-									<ExpandMoreIcon color="primary" style={expandIconStyles} />
-								}>
-								<Typography variant="h5">
-									بهترین روش سرمایه گذاری در بورس چیست؟
-								</Typography>
-							</AccordionSummary>
-							<AccordionDetails>
-								<Typography>
-									اگر قصد افزایش و یا حفظ سرمایه تان را داشته باشید و بخواهید
-									جایی سرمایه گذاری کنید، اولین گزینه پیشنهادی همه یا خرید طلا و
-									سکه و ارز است یا زمین و خانه و خودرو! احتمالا خیلی کم پیش
-									بیاید که یکی از اطرافیان‌مان با روش سرمایه گذاری در بورس آشنا
-									باشد و آن را پیشنهاد کند.
-								</Typography>
-							</AccordionDetails>
-						</Accordion>
-						<Accordion>
-							<AccordionSummary
-								expandIcon={
-									<ExpandMoreIcon color="primary" style={expandIconStyles} />
-								}>
-								<Typography variant="h5">
-									کارگزاری بورس چیست و چگونه بهترین کارگزاری را انتخاب کنیم؟
-								</Typography>
-							</AccordionSummary>
-							<AccordionDetails>
-								<Typography>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-									eget.
-								</Typography>
-							</AccordionDetails>
-						</Accordion>
-						<Accordion>
-							<AccordionSummary
-								expandIcon={
-									<ExpandMoreIcon color="primary" style={expandIconStyles} />
-								}>
-								<Typography variant="h5">
-									بازده بورس چیست و چگونه محاسبه می شود؟
-								</Typography>
-							</AccordionSummary>
-							<AccordionDetails>
-								<Typography>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-									eget.
-								</Typography>
-							</AccordionDetails>
-						</Accordion>
-						<Accordion>
-							<AccordionSummary
-								expandIcon={
-									<ExpandMoreIcon color="primary" style={expandIconStyles} />
-								}>
-								<Typography variant="h5">
-									صف خرید و فروش سهام در بازار بورس چیست؟
-								</Typography>
-							</AccordionSummary>
-							<AccordionDetails>
-								<Typography>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-									eget.
-								</Typography>
-							</AccordionDetails>
-						</Accordion>
+						<MUIAccordion />
 						<Button
 							color="primary"
 							variant="outlined"
@@ -341,8 +300,25 @@ function HomePage() {
 						</Button>
 					</Paper>
 					<Paper className={classes.container5} elevation={0}>
-						<Typography variant="h4">آموزش با مقاله</Typography>
-						<Typography variant="overline">here comes the carousel</Typography>
+						<div className={classes.carouselHeader}>
+							<Typography id="title" variant="h4">
+								آموزش با مقاله
+							</Typography>
+							<Button
+								color="primary"
+								size="small"
+								className={classes.button}
+								endIcon={
+									<ArrowRightAltIcon
+										color="primary"
+										style={{transform: "rotate(180deg)"}}
+									/>
+								}>
+								مشاهده بیشتر
+							</Button>
+						</div>
+						<br />
+						<Carousel slidesPerView={4} />
 					</Paper>
 					<Grid item xs={10}>
 						<Typography variant="h4">همکاران بلوط چه کسانی هستند؟</Typography>

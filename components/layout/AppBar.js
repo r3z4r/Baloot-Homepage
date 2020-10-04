@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function LayoutAppBar() {
 	const classes = useStyles({});
-	const [selectedIndex, setSelectedIndex] = React.useState(1);
+	const [selectedIndex, setSelectedIndex] = React.useState(0);
 
 	const handleListItemClick = (event, index) => {
 		setSelectedIndex(index);

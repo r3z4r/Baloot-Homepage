@@ -22,6 +22,9 @@ const theme = createMuiTheme({
 			main: "#263238",
 			transparent: "#fff",
 		},
+		pagination: {
+			main: "RGB(255,255,255,0.6)",
+		},
 	},
 });
 

@@ -9,11 +9,8 @@ const useStyle = makeStyles(theme => ({
 		margin: theme.spacing(8, 8, 2, 4),
 		alignItems: "center",
 		justifyContent: "space-around",
-		"& img": {
-			height: 75,
-		},
 		"& p": {
-			fontSize: 14,
+			fontSize: 16,
 		},
 	},
 }));
@@ -22,7 +19,7 @@ const FlowStep = props => {
 	const classes = useStyle();
 	return (
 		<div className={classes.root}>
-			<img src={props.img} alt={props.alt} />
+			<img src={props.img} alt={props.alt} width="70%" />
 			<p>
 				{props.children}
 			</p>
