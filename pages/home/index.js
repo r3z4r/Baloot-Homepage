@@ -9,7 +9,7 @@ import FlowStep from "../../components/UI/FlowStep";
 import Ellipse from "../../components/UI/Ellipse";
 import MUIAccordion from "../../components/UI/MUIAccordion";
 import DownArrow from "../../icons/down-arrow.svg";
-import Carousel from "../../components/UI/Carousel/";
+import Carousel from "../../components/UI/Carousel";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -40,10 +40,10 @@ const useStyles = makeStyles(theme => ({
 		"& svg": {
 			position: "absolute",
 			height: 40,
-			left: "33vw",
+			left: "37vw",
 
 			[theme.breakpoints.down("md")]: {
-				left: "30vw",
+				left: "33vw",
 			},
 		},
 		"& svg:nth-child(1)": {
@@ -56,26 +56,29 @@ const useStyles = makeStyles(theme => ({
 		display: "flex",
 		position: "relative",
 		height: 450,
-		margin: theme.spacing(6, 24),
+		margin: theme.spacing(6, 16),
 		"& img": {
 			position: "absolute",
 			right: 20,
-			width: 450, //fixed image size is not responsive , should be converted to percentage
+			width: "40%",
+			maxWidth: 500,
 		},
 		"& img:nth-child(2)": {
 			right: 0,
 			top: 30,
-			width: 420, //fixed image size is not responsive
+			width: "38%",
 		},
 		"& img:nth-child(3)": {
-			width: 50,
+			width: "4.5%",
+			maxWidth: 50,
 			top: 40,
-			right: 280,
+			right: "25%",
 		},
 		"& img:nth-child(4)": {
-			width: 55,
-			top: 250,
-			right: 50,
+			width: "5%",
+			maxWidth: 60,
+			top: "18vw",
+			right: "5%",
 		},
 	},
 
@@ -84,7 +87,7 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: "space-between",
 		alignItems: "center",
 		flexGrow: 2,
-		margin: theme.spacing(4, 16, 16, 16),
+		margin: theme.spacing(4, 16, 16),
 		"& #arrow": {
 			height: 25,
 		},
@@ -165,18 +168,16 @@ function HomePage() {
 							بلوط پلی بین پس انداز و سرمایه گذاری
 						</Typography>
 						<ul className={classes.list}>
-							<li>
-								<FiberManualRecordIcon style={bulletStyle} />پس انداز بلوط با
-								کمترین مبلغ
-							</li>
-							<li>
-								<FiberManualRecordIcon style={bulletStyle} />شروع پس انداز فقط
-								در عرض چند دقیقه
-							</li>
-							<li>
-								<FiberManualRecordIcon style={bulletStyle} />پس انداز با هر
-								تراکنش
-							</li>
+							{[
+								"پس انداز بلوط با کمترین مبلغ",
+								"شروع پس انداز فقط در عرض چند دقیقه",
+								"پس انداز با هر تراکنش",
+							].map(listItem =>
+								<li>
+									<FiberManualRecordIcon style={bulletStyle} />
+									{listItem}
+								</li>
+							)}
 						</ul>
 						<Button
 							variant="contained"
@@ -189,8 +190,8 @@ function HomePage() {
 					<div className={classes.image}>
 						<img src="/images/homepage/Background Simple.png" alt="" />
 						<img src="/images/homepage/startimg.png" alt="" />
-						<img src="/images/homepage/squirrel.png" alt="" />
-						<img src="/images/homepage/squirrel.png" alt="" />
+						<img src="/images/homepage/squirrel.png" alt="" width="5%" />
+						<img src="/images/homepage/squirrel.png" alt="" width="5%" />
 					</div>
 					<div className={classes.arrows}>
 						<DownArrow />
@@ -235,8 +236,10 @@ function HomePage() {
 							height="100%"
 						/>
 						<div id="desc">
-							<Typography variant="h4">سرمایه گذاری</Typography>
-							<Typography variant="h5">
+							<Typography gutterBottom variant="h4">
+								سرمایه گذاری
+							</Typography>
+							<Typography paragraph variant="h5">
 								با توجه به تیپ شخصیتون و نیازی که از سرمایه گذاری و پس انداز
 								دارید، ما بهتون کمک می کنیم مناسب ترین سبد را بچینید و سرمایه
 								تون رو برای بلند مدت رشد بدید
@@ -255,19 +258,17 @@ function HomePage() {
 						<div className={classes.text}>
 							<Typography variant="h4">چرا بلوط؟</Typography>
 							<ul className={classes.list}>
-								<li>
-									<FiberManualRecordIcon style={bulletStyle} />تیمی از متخصصین
-								</li>
-								<li>
-									<FiberManualRecordIcon style={bulletStyle} />شفافیت در عملکرد
-								</li>
-								<li>
-									<FiberManualRecordIcon style={bulletStyle} />استفاده راحت برای
-									همه
-								</li>
-								<li>
-									<FiberManualRecordIcon style={bulletStyle} />امینت داشتن
-								</li>
+								{[
+									"تیمی از متخصصین",
+									"شفافیت در عملکرد",
+									"استفاده راحت برای همه",
+									"امینت داشتن",
+								].map(listItem =>
+									<li>
+										<FiberManualRecordIcon style={bulletStyle} />
+										{listItem}
+									</li>
+								)}
 							</ul>
 							<Button
 								variant="contained"

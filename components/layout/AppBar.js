@@ -55,6 +55,7 @@ export default function LayoutAppBar() {
 
 	const handleListItemClick = (event, index) => {
 		setSelectedIndex(index);
+		event.preventDefault();
 	};
 	return (
 		<div className={classes.root}>
@@ -62,36 +63,36 @@ export default function LayoutAppBar() {
 				<Toolbar>
 					<div className={classes.appBar}>
 						<Baloot />
-						<List component="nav" aria-label="main mailbox folders">
+						<List component="nav" aria-label="menu">
 							<ListItem
 								button
 								selected={selectedIndex === 0}
 								onClick={event => handleListItemClick(event, 0)}>
-								<Link href={"/home/HomePage"}>صفحه اصلی</Link>
+								<Link href={"/home"}>صفحه اصلی</Link>
 							</ListItem>
 							<ListItem
 								button
 								selected={selectedIndex === 1}
 								onClick={event => handleListItemClick(event, 1)}>
-								<Link href={"/home/HomePage"}>پس انداز</Link>
+								<Link href={"/saving"}>پس انداز</Link>
 							</ListItem>
 							<ListItem
 								button
 								selected={selectedIndex === 2}
 								onClick={event => handleListItemClick(event, 2)}>
-								<Link href={"/home/HomePage"}>سرمایه گذاری</Link>
+								<Link href={"/investment"}>سرمایه گذاری</Link>
 							</ListItem>
 							<ListItem
 								button
 								selected={selectedIndex === 3}
 								onClick={event => handleListItemClick(event, 3)}>
-								<Link href={"/home/HomePage"}>آموزش</Link>
+								<Link href={"/learning"}>آموزش</Link>
 							</ListItem>
 							<ListItem
 								button
 								selected={selectedIndex === 4}
 								onClick={event => handleListItemClick(event, 4)}>
-								<Link href={"/home/HomePage"}>درباره بلوط</Link>
+								<Link href={"/about"}>درباره بلوط</Link>
 							</ListItem>
 						</List>
 					</div>
