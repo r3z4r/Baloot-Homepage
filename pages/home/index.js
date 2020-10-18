@@ -190,8 +190,8 @@ function HomePage() {
 					<div className={classes.image}>
 						<img src="/images/homepage/Background Simple.png" alt="" />
 						<img src="/images/homepage/startimg.png" alt="" />
-						<img src="/images/homepage/squirrel.png" alt="" width="5%" />
-						<img src="/images/homepage/squirrel.png" alt="" width="5%" />
+						<img src="/images/homepage/squirrel.png" alt="" />
+						<img src="/images/homepage/squirrel.png" alt="" />
 					</div>
 					<div className={classes.arrows}>
 						<DownArrow />
